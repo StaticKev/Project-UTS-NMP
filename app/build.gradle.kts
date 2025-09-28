@@ -7,6 +7,10 @@ android {
     namespace = "com.statickev.projectnmp"
     compileSdk = 36
 
+    buildFeatures{
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.statickev.projectnmp"
         minSdk = 24
