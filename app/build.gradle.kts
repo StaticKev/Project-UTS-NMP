@@ -7,6 +7,10 @@ android {
     namespace = "com.statickev.projectnmp"
     compileSdk = 36
 
+    buildFeatures{
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.statickev.projectnmp"
         minSdk = 24
@@ -42,6 +46,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.cardview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
