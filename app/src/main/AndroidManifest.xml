@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectNMP">
         <activity
-            android:name=".StudentDetails"
+            android:name=".StudentDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
