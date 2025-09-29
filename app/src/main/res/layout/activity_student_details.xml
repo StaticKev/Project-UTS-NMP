@@ -9,10 +9,13 @@
 
     <ImageView
         android:id="@+id/imgStudent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="28dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -22,9 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="72dp"
         android:text="Nama"
-        android:textSize="24sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imgStudent"
@@ -35,96 +38,111 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="16dp"
+        android:text="NRP"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/imgStudent"
         app:layout_constraintTop_toBottomOf="@+id/txtName" />
 
     <Spinner
         android:id="@+id/spnOption"
-        android:layout_width="380dp"
+        android:layout_width="345dp"
         android:layout_height="50dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imgStudent" />
 
     <TextView
         android:id="@+id/txtDetails"
-        android:layout_width="380dp"
-        android:layout_height="138dp"
-        android:layout_marginTop="24dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="345dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="36dp"
+        android:scrollbars="vertical"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spnOption" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="147dp"
-        android:layout_height="253dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnReq"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtProgram">
-
-        <RadioButton
-            android:id="@+id/rdoDSAI"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="DSAI" />
-
-        <RadioButton
-            android:id="@+id/rdoIMES"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="IMES" />
-
-        <RadioButton
-            android:id="@+id/rdoNCS"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="NCS" />
-
-        <RadioButton
-            android:id="@+id/rdoGD"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="GD" />
-
-        <RadioButton
-            android:id="@+id/rdoDMT"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="DMT" />
-
-    </RadioGroup>
 
     <Button
         android:id="@+id/btnReq"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="48dp"
         android:text="Request Friend"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/txtProgram"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="32dp"
         android:text="Program:"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.124"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDetails"
-        app:layout_constraintVertical_bias="0.408" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDetails" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="100dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtProgram"
+        app:layout_constraintVertical_bias="0.105">
+
+        <RadioButton
+            android:id="@+id/rdoDSAI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="DSAI"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/rdoIMES"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="IMES"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/rdoNCS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="NCS"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/rdoGD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="GD"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/rdoDMT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="DMT"
+            android:textSize="12sp" />
+
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
