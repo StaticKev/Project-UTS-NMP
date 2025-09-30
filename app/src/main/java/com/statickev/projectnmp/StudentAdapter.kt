@@ -30,8 +30,8 @@ class StudentAdapter() : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>(
         // Click listener for the whole card
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, StudentDetailsActivity::class.java)
+            intent.putExtra("position", position)
 
-            intent.putExtra("STUDENT_OBJ", StudentData.student_data[position])
             holder.itemView.context.startActivity(intent)
         }
     }
