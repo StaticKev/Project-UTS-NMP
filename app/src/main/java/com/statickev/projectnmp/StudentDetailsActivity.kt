@@ -24,6 +24,10 @@ class StudentDetailsActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spnOption.adapter = adapter
 
+        if (StudentData.student_data[intent.getIntExtra("position", 0)].isFriend) {
+            binding.btnReq.setEnabled(false)
+        }
+
         binding.spnOption.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -54,6 +58,7 @@ class StudentDetailsActivity : AppCompatActivity() {
         }
 
         binding.btnReq.setOnClickListener {
+            StudentData.student_data[intent.getIntExtra("position", 0)].isFriend = true
             val nama = StudentData.student_data[intent.getIntExtra("position", 0)].name
             MainActivity.FRIEND_COUNT++
             val notif = AlertDialog.Builder(this)
@@ -63,6 +68,9 @@ class StudentDetailsActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             notif.create().show()
+            if (StudentData.student_data[intent.getIntExtra("position", 0)].isFriend) {
+                binding.btnReq.setEnabled(false)
+            }
         }
 
         with(StudentData.student_data[intent.getIntExtra("position", 0)]) {

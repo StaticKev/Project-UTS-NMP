@@ -8,5 +8,6 @@ data class Student (var name: String,
                     var aboutMe: String,
                     var courses: List<String>,
                     var organization: List<String>,
-                    var imageId: Int
+                    var imageId: Int,
+                    var isFriend: Boolean
     ): Serializable
