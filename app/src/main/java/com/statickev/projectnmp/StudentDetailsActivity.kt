@@ -15,10 +15,6 @@ class StudentDetailsActivity : AppCompatActivity() {
         binding= ActivityStudentDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Ini gpp lah ya, biar bisa di scroll gais. Masa 0 gara-gara ini :)
-        // Leon: mending jangan deh, maen aman ae :)))
-        // binding.txtDetails.movementMethod = android.text.method.ScrollingMovementMethod()
-
         val items = listOf("About Me", "My Courses", "Organization/Community")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
