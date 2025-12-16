@@ -6,12 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="40dp">
 
-    <ImageView
-        android:id="@+id/settings"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:src="@drawable/outline_adjust_24" />
+        <Switch
+            android:id="@+id/sw_night_mode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Night mode on"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Reset My Friends"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sw_night_mode" />
+
+        <Button
+            android:id="@+id/btn_reset_friends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="Reset"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sw_night_mode" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

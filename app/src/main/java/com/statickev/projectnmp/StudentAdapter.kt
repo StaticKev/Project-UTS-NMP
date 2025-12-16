@@ -4,9 +4,12 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import com.statickev.projectnmp.databinding.StudentCardBinding
 
-class StudentAdapter() : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
+class StudentAdapter(
+    private var students: List<Student>
+) : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
     class StudentViewHolder(val binding: StudentCardBinding):
         RecyclerView.ViewHolder(binding.root)
 
@@ -14,7 +17,7 @@ class StudentAdapter() : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>(
         parent: ViewGroup,
         viewType: Int
     ): StudentViewHolder {
-        var binding = StudentCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = StudentCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return StudentViewHolder(binding)
     }
 
@@ -22,19 +25,23 @@ class StudentAdapter() : RecyclerView.Adapter<StudentAdapter.StudentViewHolder>(
         holder: StudentViewHolder,
         position: Int
     ) {
-        holder.binding.txtNama.text = StudentData.student_data[position].name
-        holder.binding.txtNRP.text = "NRP: " + StudentData.student_data[position].NRP
-        holder.binding.txtProgram.text = "Program: " + StudentData.student_data[position].program
-        holder.binding.imgMahasiswa.setImageResource(StudentData.student_data[position].imageId)
+        holder.binding.txtNama.text = students[position].name
+        holder.binding.txtNRP.text = students[position].NRP
+        holder.binding.txtProgram.text = students[position].program
 
-        // Click listener for the whole card
+        val builder = Picasso.Builder(holder.itemView.context)
+        builder.listener { picasso, uri, exception ->
+            exception.printStackTrace()
+        }
+        Picasso.get().load(students[position].imgUrl).into(holder.binding.imgMahasiswa)
+
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, StudentDetailsActivity::class.java)
-            intent.putExtra("position", position)
+            intent.putExtra("id", students[position].id)
 
             holder.itemView.context.startActivity(intent)
         }
     }
 
-    override fun getItemCount() = StudentData.student_data.size
+    override fun getItemCount() = students.size
 }
