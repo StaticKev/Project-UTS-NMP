@@ -6,10 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.squareup.picasso.Picasso
@@ -47,12 +44,14 @@ class StudentDetailsActivity : AppCompatActivity() {
                         aboutMe = data.getString("about"),
                         courses = data.getString("courses").split(','),
                         organization = data.getString("experiences").split(','),
-                        imgUrl = data.getString("imgurl")
+                        imgUrl = data.getString("imgurl"),
+                        email = data.getString("email")
                     )
 
                     with(student) {
                         binding.txtName.text = name
                         binding.txtNRP.text = NRP
+                        binding.txtEmail.text = email
                         binding.txtDetails.text = aboutMe
 
                         val builder = Picasso.Builder(binding.root.context)

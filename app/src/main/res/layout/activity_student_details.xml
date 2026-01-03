@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="42dp"
         android:text="Nama"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -141,10 +141,21 @@
         android:id="@+id/txtProgram"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="34dp"
         android:layout_marginBottom="12dp"
         android:text="Program:"
         app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDetails"
-        app:layout_constraintVertical_bias="0.408" /></androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintVertical_bias="0.408" />
+
+    <TextView
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:text="Email"
+        app:layout_constraintStart_toEndOf="@+id/imgStudent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNRP" />
+</androidx.constraintlayout.widget.ConstraintLayout>

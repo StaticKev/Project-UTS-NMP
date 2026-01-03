@@ -41,7 +41,8 @@ class HomeFragment : Fragment() {
                             aboutMe = studentObj.getString("about"),
                             courses = studentObj.getString("courses").split(','),
                             organization = studentObj.getString("experiences").split(','),
-                            imgUrl = studentObj.getString("imgurl")
+                            imgUrl = studentObj.getString("imgurl"),
+                            email = studentObj.getString("email")
                         )
 
                         students.add(student)
