@@ -2,6 +2,7 @@ package com.statickev.projectnmp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -13,6 +14,16 @@ class  MainActivity: AppCompatActivity() {
     private val fragments: ArrayList<Fragment> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val prefs = getSharedPreferences("theme_prefs", 0)
+        val isDarkMode = prefs.getBoolean("dark_mode", false)
+
+        AppCompatDelegate.setDefaultNightMode(
+            if (isDarkMode)
+                AppCompatDelegate.MODE_NIGHT_YES
+            else
+                AppCompatDelegate.MODE_NIGHT_NO
+        )
+
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -34,7 +45,6 @@ class  MainActivity: AppCompatActivity() {
             }
             true
         }
-
         binding.viewPager.registerOnPageChangeCallback(
             object: ViewPager2.OnPageChangeCallback(){
                 override fun onPageSelected(position: Int) {
