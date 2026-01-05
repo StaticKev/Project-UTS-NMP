@@ -26,8 +26,8 @@ class StudentAdapter(
         position: Int
     ) {
         holder.binding.txtNama.text = students[position].name
-        holder.binding.txtNRP.text = students[position].NRP
-        holder.binding.txtProgram.text = students[position].program
+        holder.binding.txtNRP.text = "NRP: " + students[position].NRP
+        holder.binding.txtProgram.text = "Program " + students[position].program
 
         val builder = Picasso.Builder(holder.itemView.context)
         builder.listener { picasso, uri, exception ->
@@ -37,7 +37,7 @@ class StudentAdapter(
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, StudentDetailsActivity::class.java)
-            intent.putExtra("id", students[position].id)
+            intent.putExtra("nrp", students[position].NRP)
 
             holder.itemView.context.startActivity(intent)
         }

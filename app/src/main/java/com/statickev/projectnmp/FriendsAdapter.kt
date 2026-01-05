@@ -1,8 +1,10 @@
 package com.statickev.projectnmp
 
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.statickev.projectnmp.databinding.FriendsCardBinding
@@ -27,8 +29,8 @@ class FriendsAdapter(
         position: Int
     ) {
         holder.binding.txtNama.text = friends[position].name
-        holder.binding.txtNRP.text = friends[position].NRP
-        holder.binding.txtProgram.text = friends[position].program
+        holder.binding.txtNRP.text = "NRP: " + friends[position].NRP
+        holder.binding.txtProgram.text = "Program " + friends[position].program
 
         val builder = Picasso.Builder(holder.itemView.context)
         builder.listener { picasso, uri, exception ->
@@ -36,15 +38,15 @@ class FriendsAdapter(
         }
         Picasso.get().load(friends[position].imgUrl).into(holder.binding.imgMahasiswa)
 
-        holder.itemView.setOnClickListener {
-            val intent = Intent(holder.itemView.context, StudentDetailsActivity::class.java)
-            intent.putExtra("id", friends[position].id)
-
-            holder.itemView.context.startActivity(intent)
-        }
-
         holder.binding.btnEmail.setOnClickListener {
-            // TODO: Panggil intent di sini!
+            val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
+                data = Uri.parse("mailto:")
+                putExtra(Intent.EXTRA_EMAIL, arrayOf(friends[position].email))
+            }
+
+            // pilih app buat kirim email
+            val sendIntent = Intent.createChooser(emailIntent, "Choose app to send email.")
+            holder.itemView.context.startActivity(sendIntent)
         }
     }
 

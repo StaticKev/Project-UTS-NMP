@@ -35,7 +35,6 @@ class FriendsFragment : Fragment() {
                     for (i in 0 until data.length()) {
                         val studentObj = data.getJSONObject(i)
                         val student = Student(
-                            id = studentObj.getInt("id"),
                             name = studentObj.getString("nama"),
                             NRP = studentObj.getString("nrp"),
                             program = studentObj.getString("program"),

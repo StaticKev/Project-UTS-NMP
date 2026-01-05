@@ -34,7 +34,6 @@ class HomeFragment : Fragment() {
                     for (i in 0 until data.length()) {
                         val studentObj = data.getJSONObject(i)
                         val student = Student(
-                            id = studentObj.getInt("id"),
                             name = studentObj.getString("nama"),
                             NRP = studentObj.getString("nrp"),
                             program = studentObj.getString("program"),
@@ -62,7 +61,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater,container,false)
-
         return binding.root
     }
 

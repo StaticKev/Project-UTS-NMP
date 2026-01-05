@@ -11,11 +11,10 @@
         android:id="@+id/imgStudent"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -25,11 +24,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="25dp"
         android:text="Nama"
-        android:textSize="16sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/imgStudent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,17 +38,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="NRP"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/imgStudent"
         app:layout_constraintTop_toBottomOf="@+id/txtName" />
 
     <Spinner
         android:id="@+id/spnOption"
-        android:layout_width="345dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgStudent" />
@@ -56,15 +58,18 @@
     <TextView
         android:id="@+id/txtDetails"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        android:layout_width="345dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="36dp"
-        android:scrollbars="vertical"
-        android:text="TextView"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
         android:ellipsize="none"
         android:overScrollMode="always"
+        android:scrollbars="vertical"
+        android:text="TextView"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spnOption" />
 
@@ -72,20 +77,18 @@
         android:id="@+id/radioGroup"
         android:layout_width="100dp"
         android:layout_height="250dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.109"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtProgram"
-        app:layout_constraintVertical_bias="0.105">
+        app:layout_constraintTop_toBottomOf="@+id/txtProgram">
 
         <RadioButton
             android:id="@+id/rdoDSAI"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
+            android:clickable="false"
+            android:scaleX="1"
+            android:scaleY="1"
             android:text="DSAI"
             android:textSize="12sp" />
 
@@ -93,8 +96,9 @@
             android:id="@+id/rdoIMES"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
+            android:clickable="false"
+            android:scaleX="1"
+            android:scaleY="1"
             android:text="IMES"
             android:textSize="12sp" />
 
@@ -102,8 +106,9 @@
             android:id="@+id/rdoNCS"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
+            android:clickable="false"
+            android:scaleX="1"
+            android:scaleY="1"
             android:text="NCS"
             android:textSize="12sp" />
 
@@ -111,8 +116,9 @@
             android:id="@+id/rdoGD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
+            android:clickable="false"
+            android:scaleX="1"
+            android:scaleY="1"
             android:text="GD"
             android:textSize="12sp" />
 
@@ -120,8 +126,9 @@
             android:id="@+id/rdoDMT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
+            android:clickable="false"
+            android:scaleX="1"
+            android:scaleY="1"
             android:text="DMT"
             android:textSize="12sp" />
 
@@ -131,30 +138,30 @@
         android:id="@+id/btnReq"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
         android:text="Request Friend"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/txtProgram"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="34dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:text="Program:"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDetails"
-        app:layout_constraintVertical_bias="0.408" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDetails" />
 
     <TextView
         android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:text="Email"
         app:layout_constraintStart_toEndOf="@+id/imgStudent"
         app:layout_constraintTop_toBottomOf="@+id/txtNRP" />
