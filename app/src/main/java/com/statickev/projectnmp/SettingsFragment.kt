@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
@@ -30,8 +31,35 @@ class SettingsFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val prefs = requireContext()
+            .getSharedPreferences("theme_prefs", 0)
+
+        val isDarkMode = prefs.getBoolean("dark_mode", false)
+        binding.swNightMode.setOnCheckedChangeListener(null)
+        binding.swNightMode.isChecked = isDarkMode
+
+        AppCompatDelegate.setDefaultNightMode(
+            if (isDarkMode)
+                AppCompatDelegate.MODE_NIGHT_YES
+            else
+                AppCompatDelegate.MODE_NIGHT_NO
+        )
+
+        binding.swNightMode.setOnCheckedChangeListener { _, isChecked ->
+
+            prefs.edit()
+                .putBoolean("dark_mode", isChecked)
+                .apply()
+
+            AppCompatDelegate.setDefaultNightMode(
+                if (isChecked)
+                    AppCompatDelegate.MODE_NIGHT_YES
+                else
+                    AppCompatDelegate.MODE_NIGHT_NO
+            )
+        }
         binding.btnResetFriends.setOnClickListener {
             val q = Volley.newRequestQueue(activity)
             val url = "http://10.0.2.2/project-nmp/reset_friends.php"
@@ -49,4 +77,6 @@ class SettingsFragment : Fragment() {
             q.add(stringRequest)
         }
     }
+
+
 }
